@@ -1,4 +1,15 @@
 {
+  "extraKnownMarketplaces": {
+    "genshijin": {
+      "source": {
+        "source": "github",
+        "repo": "InterfaceX-co-jp/genshijin"
+      }
+    }
+  },
+  "language": "japanese",
   "theme": "dark",
-  "language": "japanese"
+  "enabledPlugins": {
+    "genshijin@genshijin": true
+  }
 }
