@@ -1,15 +1,22 @@
 {
+  "enabledPlugins": {
+    "genshijin@genshijin": true,
+    "caveman@caveman": true
+  },
   "extraKnownMarketplaces": {
     "genshijin": {
       "source": {
         "source": "github",
         "repo": "InterfaceX-co-jp/genshijin"
       }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
     }
   },
   "language": "japanese",
-  "theme": "dark",
-  "enabledPlugins": {
-    "genshijin@genshijin": true
-  }
+  "theme": "dark"
 }
