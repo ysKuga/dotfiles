@@ -94,6 +94,41 @@ Source: https://github.com/safishamsi/graphify
 
 ---
 
+## MCP
+
+### Atlassian (Jira / Confluence)
+
+Remote MCP server. `streamable-http` type (SSE deprecated 2026-06-30).
+
+Instance config format (`~/.config/claude/atlassian/<name>.json` — outside dotfiles):
+```json
+{
+  "name": "company-a",
+  "url": "https://mcp.atlassian.com/v1/mcp",
+  "auth": "basic",
+  "credential": "BASE64_OF_email:api_token"
+}
+```
+
+- `auth`: `"basic"` (Personal API token) or `"bearer"` (Service account key)
+- `credential` for basic: `echo -n "email@example.com:API_TOKEN" | base64`
+- `credential` for bearer: API key string as-is
+
+Switch instances:
+```bash
+# enable
+claude/mcp/switch.sh ~/.config/claude/atlassian/company-a.json
+
+# disable
+claude/mcp/switch.sh --off
+```
+
+Template: `claude/mcp/template.json`
+
+Requires restart of Claude Code after switching.
+
+---
+
 ## Other Environment Setup
 
 No `install.sh`? Copy manually:
