@@ -18,5 +18,11 @@
     }
   },
   "language": "japanese",
-  "theme": "dark"
+  "theme": "dark",
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)"
+    ]
+  }
 }
