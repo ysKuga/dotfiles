@@ -1,0 +1,62 @@
+---
+allowed-tools: Bash(mkdir:*), Bash(date:*), Write
+description: 複雑な作業用ステアリングディレクトリを作成し、計画ファイルを初期化する
+---
+
+## 引数
+
+`$ARGUMENTS`: 開発タイトル（例: `add-auth-feature`）
+
+引数が空の場合、ユーザーにタイトルを求める。
+
+## 手順
+
+### 1. ディレクトリ名決定
+
+```bash
+date +%Y%m%d
+```
+
+`YYYYMMDD-[タイトル]` 形式でディレクトリ名を構成する。
+- スペースはハイフンに置換
+- 例: `20260610-add-auth-feature`
+
+### 2. ディレクトリ作成
+
+作業中のプロジェクトルートに `claude/.steering/YYYYMMDD-[title]/` を作成する。
+
+```bash
+mkdir -p claude/.steering/YYYYMMDD-[title]
+```
+
+### 3. design.md 生成
+
+以下のテンプレートで `claude/.steering/YYYYMMDD-[title]/design.md` を作成する:
+
+```markdown
+# [タイトル]
+
+## 目的
+
+<!-- この作業で達成すること -->
+
+## 背景・制約
+
+<!-- 判断の前提となる情報 -->
+
+## 実装計画
+
+- [ ] 
+
+## 決定事項
+
+<!-- 検討・決定した内容のログ -->
+
+## 懸念・リスク
+
+<!-- 注意点、未解決の問題 -->
+```
+
+### 4. 完了通知
+
+作成したディレクトリパスとファイルをユーザーに通知する。
