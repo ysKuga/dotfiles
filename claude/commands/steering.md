@@ -31,7 +31,9 @@ mkdir -p claude/.steering/YYYYMMDD-[title]
 
 ### 3. design.md 生成
 
-以下のテンプレートで `claude/.steering/YYYYMMDD-[title]/design.md` を作成する:
+以下のテンプレートで `claude/.steering/YYYYMMDD-[title]/design.md` を作成する。
+
+**注意:** このファイルはリポジトリで管理される。API トークン・パスワード・個人情報などのセンシティブな情報は記載しないこと。
 
 ```markdown
 # [タイトル]
