@@ -60,6 +60,40 @@ Skills included:
 - `genshijin-crew` — subagent delegation guide
 - `genshijin-stats` — token usage stats
 
+## Tools
+
+### uv
+
+Python package/tool manager. Required for graphify.
+
+Install:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### graphify
+
+Knowledge graph builder for AI coding assistants. Turns codebase into queryable graph. Cuts token usage up to 49x on large repos.
+
+Install:
+```bash
+uv tool install graphifyy
+```
+
+Note: PyPI package name is `graphifyy` (double y).
+
+Per-project setup (run inside project root):
+```bash
+graphify install
+graphify claude install
+```
+
+`graphify claude install` injects a `CLAUDE.md` directive + `PreToolUse` hook so Claude consults the graph before every file-search call.
+
+Source: https://github.com/safishamsi/graphify
+
+---
+
 ## Other Environment Setup
 
 No `install.sh`? Copy manually:
