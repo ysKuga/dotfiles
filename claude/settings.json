@@ -20,9 +20,6 @@
   "language": "japanese",
   "theme": "dark",
   "permissions": {
-    "deny": [
-      "Read(**/.env)",
-      "Read(**/.env.*)"
-    ]
+    "deny": ["Read(**/.env)", "Read(**/.env.*)"]
   }
 }
