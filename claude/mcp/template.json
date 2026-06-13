@@ -1,6 +1,0 @@
-{
-  "name": "example-company",
-  "url": "https://mcp.atlassian.com/v1/mcp",
-  "auth": "basic",
-  "credential": "BASE64_OF_email:api_token_HERE"
-}
