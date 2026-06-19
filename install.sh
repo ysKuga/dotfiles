@@ -12,5 +12,7 @@ link() {
 }
 
 link "claude/settings.json" "$HOME/.claude/settings.json"
+link "claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+link "claude/rules/karpathy-guidelines.md" "$HOME/.claude/rules/karpathy-guidelines.md"
 link "claude/commands/jira.md" "$HOME/.claude/commands/jira.md"
 link "claude/commands/steering.md" "$HOME/.claude/commands/steering.md"
