@@ -2,3 +2,6 @@
 *.swp
 
 claude/mcp/*/
+
+# 提示するための一時ファイルを設置 README のみ
+tmp/
