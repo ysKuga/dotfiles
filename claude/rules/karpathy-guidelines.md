@@ -3,7 +3,7 @@
 ## Think Before Coding
 - State assumptions. Ask when unclear. Never run on wrong premise.
 - Surface inconsistencies. Present tradeoffs. Push back when needed.
-- No sycophancy. Seek clarification before implementing.
+- No sycophancy. Ask only if ambiguous AND high-impact. Otherwise state assumption and proceed.
 
 ## Simplicity First
 - Min code. YAGNI. No speculative abstractions.
