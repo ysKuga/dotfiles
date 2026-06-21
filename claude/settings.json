@@ -19,11 +19,25 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bash \"/home/yskuga/.claude/hooks/statusline.sh\""
+    "command": "bash \"$HOME/.claude/hooks/statusline.sh\""
   },
   "language": "japanese",
   "theme": "dark",
   "permissions": {
     "deny": ["Read(**/.env)", "Read(**/.env.*)"]
+  },
+  "hooks": {
+    "PreBashCommand": [
+      {
+        "matcher": "npm install|npm i\\b|yarn install|yarn add|pnpm install|pnpm add|bun install|bun add",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/audit-repo.sh\" \"$(pwd)\"",
+            "timeout": 30000
+          }
+        ]
+      }
+    ]
   }
 }

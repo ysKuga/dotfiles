@@ -3,6 +3,7 @@
 ## Files
 
 - `claude/settings.json` — main config
+- `claude/hooks/statusline.sh` — statusline wrapper (genshijin 優先、fallback caveman)
 - `install.sh` — symlink to `~/.claude/settings.json`
 
 ## Install
