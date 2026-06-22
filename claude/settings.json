@@ -27,13 +27,13 @@
     "deny": ["Read(**/.env)", "Read(**/.env.*)"]
   },
   "hooks": {
-    "PreBashCommand": [
+    "PreToolUse": [
       {
-        "matcher": "npm install|npm i\\b|yarn install|yarn add|pnpm install|pnpm add|bun install|bun add",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"$HOME/.claude/hooks/audit-repo.sh\" \"$(pwd)\"",
+            "command": "bash -c 'input=$(cat); cmd=$(echo \"$input\" | jq -r \".command // empty\"); echo \"$cmd\" | grep -qE \"npm install|npm i\\b|yarn install|yarn add|pnpm install|pnpm add|bun install|bun add\" && bash \"$HOME/.claude/hooks/audit-repo.sh\" \"$(pwd)\"'",
             "timeout": 30000
           }
         ]
