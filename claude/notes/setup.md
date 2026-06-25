@@ -99,34 +99,34 @@ Source: https://github.com/safishamsi/graphify
 
 ### Atlassian (Jira / Confluence)
 
-Remote MCP server. `streamable-http` type (SSE deprecated 2026-06-30).
+Remote MCP server. OAuth 2.1 認証。`mcp-remote` 不要。
 
-Instance config format (`~/.config/claude/atlassian/<name>.json` — outside dotfiles):
-```json
-{
-  "name": "company-a",
-  "url": "https://mcp.atlassian.com/v1/mcp",
-  "auth": "basic",
-  "credential": "BASE64_OF_email:api_token"
-}
-```
-
-- `auth`: `"basic"` (Personal API token) or `"bearer"` (Service account key)
-- `credential` for basic: `echo -n "email@example.com:API_TOKEN" | base64`
-- `credential` for bearer: API key string as-is
-
-Switch instances:
+**初期セットアップ（一回限り）:**
 ```bash
-# enable
-claude/mcp/switch.sh ~/.config/claude/atlassian/company-a.json
-
-# disable
-claude/mcp/switch.sh --off
+claude mcp add --transport http atlassian https://mcp.atlassian.com/v1/mcp/authv2 -s user
 ```
 
-Template: `claude/mcp/template.json`
+設定は `~/.claude.json` に保存される。
 
-Requires restart of Claude Code after switching.
+**OAuth 認証:**
+- `claude` 起動後、Jira について言及すると OAuth フロー起動
+- WSL: ブラウザは自動起動しない → Terminal に出た URL を Windows ブラウザに貼り付け
+- 認証後は自動でトークン管理
+
+**確認:**
+```bash
+claude mcp list
+# atlassian: https://mcp.atlassian.com/v1/mcp/authv2 (HTTP) - ✔ Connected
+```
+
+**再認証が必要な場合:**
+```bash
+# auth キャッシュ削除
+python3 -c "import json; p='$HOME/.claude/mcp-needs-auth-cache.json'; d=json.load(open(p)); d.pop('atlassian',None); json.dump(d,open(p,'w'))"
+# → claude 起動 → Jira 言及で再認証
+```
+
+利用可能なコマンド: `/jira <チケット番号>` `/confluence <ページ>`
 
 ---
 
