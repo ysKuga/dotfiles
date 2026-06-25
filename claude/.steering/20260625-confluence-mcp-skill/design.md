@@ -42,3 +42,15 @@ Atlassian Remote MCP で Confluence ページの読み書きを Claude から実
 
 jira.md と共通の Atlassian MCP OAuth。
 詳細は `claude/.steering/20260610-jira-mcp-skill-setup/design.md` 参照。
+
+## 将来課題
+
+### jira.md / confluence.md の認証コード共通化
+
+現状: 両ファイルに同一の OAuth フロー Python コードが重複。
+
+共通化の選択肢:
+- `~/.claude/scripts/atlassian-auth.sh` などの外部スクリプトに切り出し、各 .md から呼び出す
+- スキル側で `allowed-tools: Bash(bash:*)` として共通スクリプトを実行
+
+実現可能性・メリット・デメリットは後程検討。
