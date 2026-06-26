@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(mkdir:*), Bash(date:*), Write
+allowed-tools: Bash(mkdir:*), Bash(date:*), Bash(pwd:*), Bash(echo:*), Write
 description: 複雑な作業用ステアリングディレクトリを作成し、計画ファイルを初期化する
 ---
 
@@ -59,6 +59,20 @@ mkdir -p claude/.steering/YYYYMMDD-[title]
 <!-- 注意点、未解決の問題 -->
 ```
 
-### 4. 完了通知
+### 4. recent.md に追記
+
+`~/.claude/recent.md` に作業エントリを追記する。ファイルが存在しない場合は自動作成される。
+
+```bash
+pwd
+```
+
+```bash
+echo "- $(date +%Y-%m-%d) $(pwd): [タイトル] → claude/.steering/YYYYMMDD-[title]/" >> ~/.claude/recent.md
+```
+
+`[タイトル]` と `YYYYMMDD-[title]` は実際の値に置換すること。
+
+### 5. 完了通知
 
 作成したディレクトリパスとファイルをユーザーに通知する。
