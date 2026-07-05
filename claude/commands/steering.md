@@ -23,15 +23,15 @@ date +%Y%m%d
 
 ### 2. ディレクトリ作成
 
-作業中のプロジェクトルートに `claude/.steering/YYYYMMDD-[title]/` を作成する。
+作業中のプロジェクトルートに `.claude/.steering/YYYYMMDD-[title]/` を作成する。
 
 ```bash
-mkdir -p claude/.steering/YYYYMMDD-[title]
+mkdir -p .claude/.steering/YYYYMMDD-[title]
 ```
 
 ### 3. design.md 生成
 
-以下のテンプレートで `claude/.steering/YYYYMMDD-[title]/design.md` を作成する。
+以下のテンプレートで `.claude/.steering/YYYYMMDD-[title]/design.md` を作成する。
 
 **注意:** このファイルはリポジトリで管理される。API トークン・パスワード・個人情報などのセンシティブな情報は記載しないこと。
 
@@ -68,7 +68,7 @@ pwd
 ```
 
 ```bash
-echo "- $(date +%Y-%m-%d) $(pwd): [タイトル] → claude/.steering/YYYYMMDD-[title]/" >> ~/.claude/recent.md
+echo "- $(date +%Y-%m-%d) $(pwd): [タイトル] → .claude/.steering/YYYYMMDD-[title]/" >> ~/.claude/recent.md
 ```
 
 `[タイトル]` と `YYYYMMDD-[title]` は実際の値に置換すること。
