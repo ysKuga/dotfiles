@@ -5,6 +5,7 @@
 Coding rules split into separate files.
 
 @rules/karpathy-guidelines.md
+@rules/markdown.md
 
 ## Structure Reference
 
