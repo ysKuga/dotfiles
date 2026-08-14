@@ -95,6 +95,34 @@ Source: https://github.com/safishamsi/graphify
 
 ---
 
+### CodeGraph
+
+セマンティックコード知識グラフ。シンボル・呼び出しエッジ・依存関係を事前構築、grep/glob/Read の巡回探索を1回のツール呼び出しに置換。20+言語対応、Rustカーネル、100%ローカル(SQLiteのみ、外部送信なし)。
+
+Install:
+```bash
+curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
+```
+
+エージェント連携(MCPサーバー設定 + CLAUDE.md注入):
+```bash
+codegraph install
+```
+
+プロジェクトごと初期化(グラフ構築も同時実行):
+```bash
+cd your-project
+codegraph init
+```
+
+ファイル監視+debounceで自動sync。以後 `codegraph sync` 手動実行は基本不要。
+
+Source: https://github.com/colbymchenry/codegraph
+
+**メモ: OKF (Open Knowledge Format)** — Google Cloud策定のオープン仕様(2026-06)。AIエージェント向け知識を markdown + YAML frontmatter で構造化・共有するフォーマット。派生Rustツール `okf-rs` がコードベースをOKF形式の知識ベースに変換する用途で登場(2026-08、CodeGraphとは別プロジェクト)。未導入・要調査。
+
+---
+
 ## MCP
 
 ### Atlassian (Jira / Confluence)
