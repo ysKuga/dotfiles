@@ -2,6 +2,7 @@
 
 - End prose lines with `\` for hard breaks. Plain newlines get swallowed by hover/tooltip renderers (GitHub PR previews, etc).
 - Applies to consecutive prose lines only. List items and headings already break correctly, leave them as-is.
+- 複数文を1行に詰め込まず、文ごとに改行する（ソース上の改行のみ。表示上も改行させたい場合は上記 hard break ルールを別途適用）。
 
 # 構造化記述
 
