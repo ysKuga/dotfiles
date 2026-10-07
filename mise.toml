@@ -1,0 +1,28 @@
+# dotfiles 用タスク。dotfiles ディレクトリで `mise run <task>` (`mise tasks` で一覧)
+[tasks.install]
+description = "設定ファイルの symlink"
+run = "./install.sh"
+
+[tasks.tools]
+description = "~/.config/mise/config.toml のツールをインストール"
+run = "mise install"
+
+[tasks.gh-auth]
+description = "GitHub CLI 認証 (未認証時のみ login)"
+run = """
+mise x -- gh auth status >/dev/null 2>&1 || mise x -- gh auth login
+# credential helper を ~/.gitconfig に書き込む (repo 管理の git/config は変更されない)
+# gh auth setup-git はバージョン付きの絶対パスを書くため mise upgrade 後に壊れる。shim を指定する
+for host in https://github.com https://gist.github.com; do
+  git config --global --replace-all "credential.$host.helper" ''
+  git config --global --add "credential.$host.helper" "!$HOME/.local/share/mise/shims/gh auth git-credential"
+done
+"""
+
+[tasks.setup]
+description = "初期セットアップ一式 (install → tools → gh-auth)"
+run = [
+  "mise run install",
+  "mise run tools",
+  "mise run gh-auth",
+]

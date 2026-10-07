@@ -8,13 +8,14 @@ Claude Code のユーザー設定を管理するリポジトリ。`install.sh` �
 - `bash/bashrc.d/` — `~/.bashrc.d/` へ1ファイルずつ symlink される分割設定。`~/.bashrc` は OS 標準のまま残し、`install.sh` が末尾に読込ブロックのみ追記する。マシン固有の設定は `~/.bashrc.d/` に直接置く。
 - `git/config` — `~/.config/git/config` へ symlink。`~/.gitconfig` はローカル・自動書込用（`gh auth setup-git` 等）として repo 管理せず、`install.sh` が未作成・空のときのみ `git/gitconfig.example` をコピーする。
 - `mise/global.toml` — `~/.config/mise/config.toml` へ symlink。グローバルに使うツール（Claude Code, gh, fzf, eza, bat, node）を定義。`mise/config.toml` という名前にすると repo 内で project config として読まれてしまうため避ける。
+- `mise.toml` — 初期セットアップ用 mise タスク（`mise run setup` など）。`Makefile` は `make help` で一覧を出すのみ。
 - `setup/tools.md` — インストール候補一覧（mise 管理外のものを含む）。
 - `install.sh` — symlink 作成スクリプト。新しいファイルを追加したら必ずここにも `link` 行を追加する。
 - `claude/notes/setup.md` — plugins・MCP・uv/graphify など、symlink だけでは完結しないセットアップ手順のドキュメント。
 
 ## 新しい環境への適用手順
 
-1. `./install.sh` を実行（symlink作成のみ、追加ツールのインストールは含まれない）
+1. `README.md` の手順で clone → mise インストール → `mise run setup`（symlink・ツール・gh 認証）
 2. `claude/notes/setup.md` を参照して以下を個別に実施:
    - Atlassian MCP: `claude mcp add --transport http atlassian https://mcp.atlassian.com/v1/mcp/authv2 -s user`
    - uv: `curl -LsSf https://astral.sh/uv/install.sh | sh`
