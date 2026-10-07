@@ -5,6 +5,7 @@ Claude Code のユーザー設定を管理するリポジトリ。`install.sh` �
 ## 構造
 
 - `claude/` — `~/.claude/` へ symlink される実体（settings.json, CLAUDE.md, rules, commands, hooks）。実際の `~/.claude/` を直接編集せず、必ずこちら側を編集する。
+- `bash/bashrc.d/` — `~/.bashrc.d/` へ1ファイルずつ symlink される分割設定。`~/.bashrc` は OS 標準のまま残し、`install.sh` が末尾に読込ブロックのみ追記する。マシン固有の設定は `~/.bashrc.d/` に直接置く。
 - `git/config` — `~/.config/git/config` へ symlink。`~/.gitconfig` はローカル・自動書込用（`gh auth setup-git` 等）として repo 管理せず、`install.sh` が未作成・空のときのみ `git/gitconfig.example` をコピーする。
 - `mise/global.toml` — `~/.config/mise/config.toml` へ symlink。グローバルに使うツール（Claude Code, gh, fzf, eza, bat, node）を定義。`mise/config.toml` という名前にすると repo 内で project config として読まれてしまうため避ける。
 - `setup/tools.md` — インストール候補一覧（mise 管理外のものを含む）。

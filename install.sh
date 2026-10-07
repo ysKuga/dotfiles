@@ -32,3 +32,18 @@ fi
 
 # mise: グローバルに使うツールの定義
 link "mise/global.toml" "$HOME/.config/mise/config.toml"
+
+# bash: ~/.bashrc は OS 標準のまま残し、~/.bashrc.d/*.sh を読み込むブロックのみ追記する
+for f in "$DOTFILES"/bash/bashrc.d/*.sh; do
+  link "bash/bashrc.d/$(basename "$f")" "$HOME/.bashrc.d/$(basename "$f")"
+done
+if ! grep -q '>>> dotfiles bashrc.d >>>' "$HOME/.bashrc"; then
+  cat >>"$HOME/.bashrc" <<'BASHRC'
+
+# >>> dotfiles bashrc.d >>>
+for f in ~/.bashrc.d/*.sh; do [ -r "$f" ] && . "$f"; done
+unset f
+# <<< dotfiles bashrc.d <<<
+BASHRC
+  echo "appended: bashrc.d loader -> $HOME/.bashrc"
+fi
