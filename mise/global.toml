@@ -1,0 +1,16 @@
+# ~/.config/mise/config.toml へ symlink される (グローバルに使うツール)
+[tools]
+claude = "latest"
+gh = "latest"
+fzf = "latest"
+eza = "latest"
+bat = "latest"
+node = "lts"
+
+[settings]
+# .nvmrc / .node-version を読んで node のバージョンを切り替える
+idiomatic_version_file_enable_tools = ["node"]
+
+[env]
+# Claude Code は mise で更新するため自前の自動更新を無効化
+DISABLE_AUTOUPDATER = "1"

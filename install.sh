@@ -29,3 +29,6 @@ if [ ! -s "$HOME/.gitconfig" ]; then
   cp "$DOTFILES/git/gitconfig.example" "$HOME/.gitconfig"
   echo "copied: $HOME/.gitconfig <- git/gitconfig.example"
 fi
+
+# mise: グローバルに使うツールの定義
+link "mise/global.toml" "$HOME/.config/mise/config.toml"
