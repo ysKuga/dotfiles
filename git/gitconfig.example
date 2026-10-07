@@ -1,0 +1,17 @@
+# ~/.gitconfig のひな形。install.sh が ~/.gitconfig 未作成 (または空) の場合にコピーする。
+# 共通設定は git/config (~/.config/git/config) 側。ここにはマシン固有の設定を書く。
+# git config --global の書き込み先もこのファイルになる。
+
+# マシンごとに user を上書きする場合
+#[user]
+#	email =
+
+[user]
+	name = <name>
+	email = <email>
+
+# 特定ディレクトリ配下のリポジトリだけ別設定を使う場合 (例: 仕事用)
+#[includeIf "gitdir:~/work/company/"]
+#	path = ~/.gitconfig.company
+
+# --- 以下は mise run gh-auth により credential helper (mise の gh shim) が追記される ---

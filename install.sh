@@ -21,3 +21,11 @@ link "claude/hooks/audit-repo.sh" "$HOME/.claude/hooks/audit-repo.sh"
 link "claude/commands/audit-repo.md" "$HOME/.claude/commands/audit-repo.md"
 link "claude/commands/confluence.md" "$HOME/.claude/commands/confluence.md"
 link "claude/commands/map-setup.md" "$HOME/.claude/commands/map-setup.md"
+
+# git: repo 管理分は XDG 側へ。~/.gitconfig はローカル用にひな形をコピーして用意し、
+# git config --global や gh auth setup-git の書き込み先がそちらになるようにする
+link "git/config" "$HOME/.config/git/config"
+if [ ! -s "$HOME/.gitconfig" ]; then
+  cp "$DOTFILES/git/gitconfig.example" "$HOME/.gitconfig"
+  echo "copied: $HOME/.gitconfig <- git/gitconfig.example"
+fi

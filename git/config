@@ -1,0 +1,9 @@
+# ~/.config/git/config へ symlink される。
+# マシン固有の設定や gh auth setup-git などが自動で書き込む設定は ~/.gitconfig 側に入る。
+[user]
+	name = <name>
+	email = <email>
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
