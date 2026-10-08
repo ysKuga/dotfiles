@@ -5,6 +5,7 @@ gh = "latest"
 fzf = "latest"
 eza = "latest"
 bat = "latest"
+ripgrep = "latest"
 node = "lts"
 
 [settings]
