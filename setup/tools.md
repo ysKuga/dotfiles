@@ -26,6 +26,20 @@ Node.js のバージョン管理。mise の node で置き換え、`.nvmrc` も 
 
 `cat` の代替。シンタックスハイライト・行番号の表示。
 
+## ripgrep (mise)
+
+<https://github.com/BurntSushi/ripgrep>
+
+高速な grep。
+VS Code 拡張 Todo-Tree が同梱 rg を見つけられない (`Failed to find vscode-ripgrep`) ため、mise の shim を指定する。
+端末固有の絶対パスになるため dotfiles 管理外とし、WSL 側の Machine 設定 `~/.vscode-server/data/Machine/settings.json` に書く。
+
+```json
+{
+  "todo-tree.ripgrep.ripgrep": "/home/<user>/.local/share/mise/shims/rg"
+}
+```
+
 ## Docker Engine (未導入)
 
 <https://docs.docker.com/engine/install/ubuntu/>
